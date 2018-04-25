@@ -1,0 +1,5 @@
+[raspberryPi]
+heizungreserve
+
+[raspberryPi:vars]
+karaf_home=/home/heatingcontrol/karaf
