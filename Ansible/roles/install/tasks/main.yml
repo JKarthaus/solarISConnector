@@ -1,0 +1,13 @@
+---
+# Instal solar Data Initial State Connector on karaf
+
+- name: copy the config File
+  copy:
+    src: ../templates/solarISConnector.cfg
+    dest: "{{ karaf_home }}/etc"
+    
+- name: copy the OSG Bundle
+  copy:
+    src: ../target/solarISConnector-0.0.1.jar
+    dest: "{{ karaf_home }}/deploy"
+    

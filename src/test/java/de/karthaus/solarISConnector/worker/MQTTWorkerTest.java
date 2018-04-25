@@ -10,16 +10,16 @@ import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import de.karthaus.solarISConnector.model.SolarISConnectorContext;
+import de.karthaus.solarISConnector.model.SolarHeatingControlContext;
 
 class MQTTWorkerTest {
 
 	private MQTTWorker mqttWorker;
-	private SolarISConnectorContext context;
+	private SolarHeatingControlContext context;
 
 	@BeforeEach
 	void setUp() throws Exception {
-		context = new SolarISConnectorContext();
+		context = new SolarHeatingControlContext();
 		mqttWorker = new MQTTWorker();
 
 	}
@@ -46,7 +46,6 @@ class MQTTWorkerTest {
 
 	private void sendMessage(String payload) {
 		try {
-			String line;
 			String[] cmd = { "/bin/sh", "-c", "mosquitto_pub -t \"/pvData\" -m \"" + payload + "\"" };
 			Process process = Runtime.getRuntime().exec(cmd);
 			int exitCode = process.waitFor();
